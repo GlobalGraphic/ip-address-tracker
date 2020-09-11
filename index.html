@@ -24,26 +24,26 @@
     <div class="content">
       <div class="search">
         <h1 class="heading">IP Address Tracker</h1>
-        <form class="example">
-          <input type="text" placeholder="Search for any IP address or domain" name="search2">
+        <form class="example" id="location_form">
+          <input type="text" pattern="^[0-9\.]*$" title="Only IP address allowed: Numbers and dots" placeholder="Search for any IP address" id="search_bar">
           <button type="submit"><i class="far fa-chevron-right"></i></button>
         </form>
         <div class="data_info">
           <div class="ip">
             <p class="data_para">IP Address</p>
-            <p class="data_result">192.192.89.0</p>
+            <p class="data_result" id="ip_address"></p>
           </div>
           <div class="location">
             <p class="data_para">Location</p>
-            <p class="data_result">Brooklyn, NY</p>
+            <p class="data_result" id="location"></p>
           </div>
           <div class="timezone">
             <p class="data_para">Timezone</p>
-            <p class="data_result">UTC -05:00</p>
+            <p class="data_result" id="timezone"></p>
           </div>
           <div class="isp">
             <p class="data_para">ISP</p>
-            <p class="data_result">SpaceX</p>
+            <p class="data_result" id="isp"></p>
           </div>
         </div>
       </div>
@@ -55,16 +55,99 @@
 
   
 <!--  <div class="attribution">-->
-<!--    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. -->
+<!--    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.-->
 <!--    Coded by <a href="https://github.com/GlobalGraphic">Branislav Buna</a>.-->
 <!--  </div>-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiY29kZXByb2RpZ3kiLCJhIjoiY2tlNWxtNHJjMTRkbjJ6bzRjajlhYmx4MSJ9.HklunmwPVXRpFLP0r-zekg';
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11'
     });
+
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('body')}));
+
+    let ip_address = document.getElementById('ip_address');
+    let loc = document.getElementById('location');
+    let timezone = document.getElementById('timezone');
+    let isp = document.getElementById('isp');
+    let location_form = document.getElementById('location_form');
+    let search_bar = document.getElementById('search_bar');
+    let marker;
+
+    window.onload = () => {
+      const api_key = 'at_hrETXIBAfDfhPM6Ql8EfqWcx06ZY5';
+      $.ajax({
+        url: "https://geo.ipify.org/api/v1",
+        dataType: "json",
+        data: {apiKey: api_key},
+        success: function(data) {
+          // console.log(data);
+          ip_address.innerHTML = data.ip;
+          loc.innerHTML = data.location.city + ', ' + data.location.country;
+          timezone.innerHTML = 'UTC ' + data.location.timezone;
+          isp.innerHTML = data.isp;
+
+          marker = new mapboxgl.Marker()
+            .setLngLat([data.location.lng, data.location.lat])
+            .addTo(map);
+
+          map.flyTo({
+            center: [data.location.lng, data.location.lat],
+            speed: 0.5,
+            zoom: 12
+          });
+        }
+      });
+    }
+
+    location_form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if(search_bar.value != ''){
+        const api_key = 'at_hrETXIBAfDfhPM6Ql8EfqWcx06ZY5';
+        let ip = search_bar.value;
+        $.ajax({
+          url: "https://geo.ipify.org/api/v1",
+          dataType: "json",
+          data: {
+            apiKey: api_key,
+            ipAddress: ip
+          },
+          success: function(data) {
+            // console.log(data);
+            ip_address.innerHTML = data.ip;
+            loc.innerHTML = data.location.city + ', ' + data.location.country;
+            timezone.innerHTML = 'UTC ' + data.location.timezone;
+            isp.innerHTML = data.isp;
+
+            marker = new mapboxgl.Marker()
+                    .setLngLat([data.location.lng, data.location.lat])
+                    .addTo(map);
+
+            map.flyTo({
+              center: [data.location.lng, data.location.lat],
+              speed: 0.5,
+              zoom: 12
+            });
+          }
+        });
+      }else {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Please add IP address to perform search!',
+          icon: 'error',
+          confirmButtonText: 'Cool'
+        });
+      }
+    });
+
   </script>
 </body>
 </html>

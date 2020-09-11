@@ -147,3 +147,7 @@ h1{
     font-weight: 700;
     font-size: 18px;
 }
+
+.swal2-container {
+    z-index: 10000 !important;
+}
