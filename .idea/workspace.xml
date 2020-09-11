@@ -15,6 +15,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -33,7 +35,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599811852376</updated>
-      <workItem from="1599811854003" duration="101000" />
+      <workItem from="1599811854003" duration="4362000" />
     </task>
     <servers />
   </component>
@@ -45,5 +47,41 @@
       <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="304" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.973@0.23.1680.973" timestamp="1599811954423" />
+    <state width="1659" height="257" key="GridCell.Tab.0.bottom" timestamp="1599812032911">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.0.bottom/0.23.1680.973@0.23.1680.973" timestamp="1599812032911" />
+    <state width="1659" height="257" key="GridCell.Tab.0.center" timestamp="1599812032910">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.0.center/0.23.1680.973@0.23.1680.973" timestamp="1599812032910" />
+    <state width="1659" height="257" key="GridCell.Tab.0.left" timestamp="1599812032910">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.0.left/0.23.1680.973@0.23.1680.973" timestamp="1599812032910" />
+    <state width="1659" height="257" key="GridCell.Tab.0.right" timestamp="1599812032911">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1599812032911" />
+    <state width="1659" height="257" key="GridCell.Tab.1.bottom" timestamp="1599812032913">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.1.bottom/0.23.1680.973@0.23.1680.973" timestamp="1599812032913" />
+    <state width="1659" height="257" key="GridCell.Tab.1.center" timestamp="1599812032912">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.1.center/0.23.1680.973@0.23.1680.973" timestamp="1599812032912" />
+    <state width="1659" height="257" key="GridCell.Tab.1.left" timestamp="1599812032912">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.1.left/0.23.1680.973@0.23.1680.973" timestamp="1599812032912" />
+    <state width="1659" height="257" key="GridCell.Tab.1.right" timestamp="1599812032913">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1659" height="257" key="GridCell.Tab.1.right/0.23.1680.973@0.23.1680.973" timestamp="1599812032913" />
+    <state x="341" y="148" width="1278" height="722" key="SettingsEditor" timestamp="1599812447697">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state x="341" y="148" width="1278" height="722" key="SettingsEditor/0.23.1680.973@0.23.1680.973" timestamp="1599812447697" />
   </component>
 </project>
